@@ -1,11 +1,4 @@
-required_packages=c("measurements")
-installed_packages=installed.packages()[,1]
-packages_to_install=required_packages[!(required_packages %in% installed_packages)]
-if (length(packages_to_install) > 0) {
-  install.packages(packages_to_install)
-}
-
-lapply(required_packages, require, character.only=T)
+library(measurements)
 
 
 # Convert N/E to +1 and W/S to -1. Otherwise NA.
@@ -19,6 +12,9 @@ convert_dir_to_sign=function(x) {
   }
 }
 
+
+#' @export convert_coordinate
+#'
 convert_coordinate = function(x) {
   # convert direction to -1/1
   sign=convert_dir_to_sign(gsub("([NSWE])$", "\\1", x))
