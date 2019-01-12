@@ -19,7 +19,7 @@ convert_coordinate = function(x) {
   # convert direction to -1/1
   sign=convert_dir_to_sign(gsub("([NSWE])$", "\\1", x))
   # components to reuse in regular expressions
-  grad_comp="[º° ]{1,2}"
+  grad_comp="[\u00b0\u00ba ]{1,2}"
   dir_comp="([NSWE])$"
   min_comp="[’´`'′]"
   if (length(grep(paste0("^([0-9]+)", grad_comp, "([0-9]+)[´`']([0-9]+)", dir_comp), x))> 0) {
